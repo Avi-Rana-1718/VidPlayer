@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="Avi Rana VidPlayer,Online VidPlayer,Online Video Player">
 <meta charset="UTF-8">
-  <meta name="description" content="A online Video Player!">
+  <meta name="description" content="A online video player!">
         <link rel="icon"
         type="image/png"
         href="https://cdn.discordapp.com/attachments/806182260171997262/807596243341279232/20210206_182856.png">
@@ -65,7 +65,9 @@ footer {
 <h6>A simple video player.</h6>
 <script>
 function src() {
-document.getElementById("player").src = document.getElementById("fsrc").value;
+    
+   var vidsrc = document.getElementById("fsrc").value;
+document.getElementById("player").src = vidsrc;
 }
 </script>
 <video id = "player" width="100%"
