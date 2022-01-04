@@ -18,43 +18,6 @@
           padding: 0;
           margin: 0;
       }
-      #main {
-          margin-left:265px;
-      }
-      #nav {
-          width: 100%;
-          background-color:#0F0F11 ;
-          padding: 12px;
-          height: 45px;
-          top:0;
-          z-index:5;
-          display:none;
-      }
-      #sidebar {
-          height: 100%;
-          width:260px;
-          z-index:5;
-          padding-top:20px;
-          overflow-x:hidden;
-          background-color: #0F0F11;
-          transition: 0.2 width;
-          font-family: 'Archivo', sans-serif;
-          position: fixed;
-      }
-      #sidebar a {
-          font-family: 'Poppins', sans-serif;
-          padding: 10px;
-      }
-      #sidebar a i {
-          background-color: #26272C;
-          border-radius: 3px;
-         padding:10px;
-      }
-      #closebtn {
-         float: right;
-         padding-right: 30px;
-         display: none;
-      }
 #video {
     width: 100%;
     height: 100%;
@@ -73,7 +36,8 @@
     position: absolute;
     font-family: 'Poppins', sans-serif;
     z-index:2;
-    left: 10;
+    left: 0;
+    margin: 5px;
     text-shadow: 1px 1px 3px black;
     top:10;
 }
@@ -89,9 +53,10 @@
     background-color: #282828;
     opacity: 0.6;
     z-index: 2;
+    margin:5px;
     border-radius: 3px;
     padding: 10px;
-    right:10;
+    right:0;
     top:10;
 }
 #progress-bar {
@@ -108,39 +73,11 @@
     padding: 10px;
     font-family: 'Manrope', sans-serif;
 }
-#episode, #info-episode {
-    line-height: 0.7;
-}
 .time {
     font-family: 'Poppins', sans-serif;
 }
-#ep-list {
-    padding: 5px;
-}
-#ep-list ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-#ep-list ul li {
-    display: flex;
- margin: 5px;
- padding: 5px;
- border-radius:3px;
- background-color: #32333a;
-}
-#ep-list ul li:hover {
-    background-color: #3e3f47;
-    transition:background-color 0.5s;
-}
-#ep-list ul li div {
-    max-width: 50%;
- width: auto;
- padding: 5px;
-}
-#ep-list ul li div img {
-    border-radius: 3px;
-}
+
+
 @media screen and (max-width: 600px) {
   #sidebar {
  width:0px;
