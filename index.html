@@ -70,12 +70,12 @@ footer {
 function src() {
 
    var vidsrc = document.getElementById("fsrc").value;
-document.getElementById("player").src = vidsrc;
+document.getElementById("video").innerHTML = `<iframe allow='fullscreen' src='https://avi-rana-1718.github.io/VidPlayer/watch?src=${vidsrc}'></iframe>`;
 }
 </script>
-<video id = "player" poster="https://cdn.discordapp.com/attachments/806182260171997262/817461780929839104/20210305_235103.png" controls> autoplay="autoplay">
-  <source src="vidsrc" type="video/mp4">
- </video>
+<div id="video">
+    
+</div>
  <br>
 <form>
   <label for="fsrc"></label><br>
