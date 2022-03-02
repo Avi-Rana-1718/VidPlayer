@@ -13,6 +13,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
   </head>
   <style>
+* {
+    transition: all 2s;
+}
       body {
           background-color: #26272C;
           color:white;
@@ -185,11 +188,13 @@ function show() {
 if (document.getElementById("video").paused) {
     document.getElementById("play").style.display="block";
                     document.getElementById("pause").style.display="none";
+document.getElementById("bottom-div").style.display="block";
 } else {
     document.getElementById("play").style.display="none";
                     document.getElementById("pause").style.display="block";
+document.getElementById("bottom-div").style.display="block";
 clearTimeout();
-var timeout = setTimeout(hide,5000);
+var timeout = setTimeout(hide,3500);
 }
 document.getElementById("details").style.display ="block";
 document.getElementById("options").style.display ="block";
