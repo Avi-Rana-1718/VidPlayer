@@ -113,6 +113,21 @@ width:100%;
 #pause {
     display: none;
 }
+#error {
+    padding: 15px;
+display: none;
+position: absolute;
+width:max-content;
+height:max-content;
+z-index: 5;
+border-radius: 3px;
+background-color: #26272C;
+border: 1px solid black;
+font-family: 'Manrope', sans-serif;
+}
+#error h3 {
+    font-family: 'Poppins', sans-serif;
+}
 @media screen and (max-width: 600px) {
   #sidebar {
  width:0px;
@@ -183,7 +198,6 @@ function hide() {
 </script>
   <body>
 <!--HEADER-->
-<div id="main">
 <div id="video-div" class="d-flex align-items-center justify-content-center">
     <div id="details" class="align-self-start">
     <span id="title">Darling in the franxx</span><br>
@@ -215,6 +229,10 @@ Your browser does not support the video tag.
     <progress id="progress-bar" value="0" min="0"></progress>
   <input class="seek" id="seek" value="0" min="0" type="range" step="1">
 </div>
+</div>
+<div id="error">
+    <h3> Something went wrong!</h3>
+<span>Please check if the provided link is correct.</span>
 </div>
 </div>
 <script>
@@ -290,6 +308,10 @@ function rewind() {
     vid.currentTime = vid.currentTime - 10;
     seek.value = seek.value - 10;
 }
+vid.addEventListener('error', function(event) {
+    document.getElementById("error").style.display = "block";
+    
+}, true);
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
