@@ -13,9 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap" rel="stylesheet">
   </head>
   <style>
-* {
-    transition: all 2s;
-}
       body {
           background-color: #26272C;
           color:white;
@@ -55,7 +52,7 @@ display: flex;
     margin-left: 10px;
     margin-right: 10px;
 }
-#options {
+#options-div {
     position: absolute;
     background-color: #282828;
     opacity: 0.6;
@@ -66,42 +63,14 @@ display: flex;
     right:0;
     top:10;
 }
-#progress-div {
-padding:0px;
-width: auto;
-max-width: 100%;
-}
-#progress-bar {
-    display: none;
-}
-.seek {
-    -webkit-appearance: none;
-width: 100%;
-background: #282828;
-opacity: 0.6;
-}
-.seek::after {
-    background: white;
-}
-.seek::-webkit-slider-thumb {
-        -webkit-appearance: none;
-         appearance: none;
-         width: 15px;
-      height: 15px;
-      border-radius: 20px;
-      background: #f3f3f3;
-      cursor: pointer;
-}
 #bottom-div {
     position: absolute;
+    padding: 0;
     bottom: 0;
 width:100%;
-    left:10;
+    padding-left: 10px;
     z-index:2;
     text-shadow: 0.5px 0.5px 1.5px black;
-}
-#btime {
-    padding-left: 10px;
 }
 #info {
     padding: 10px;
@@ -115,6 +84,9 @@ width:100%;
 }
 #pause {
     display: none;
+}
+#dpip {
+  display: none;
 }
 #error {
     padding: 15px;
@@ -131,223 +103,55 @@ font-family: 'Manrope', sans-serif;
 #error h3 {
     font-family: 'Poppins', sans-serif;
 }
-@media screen and (max-width: 600px) {
-  #sidebar {
- width:0px;
- padding-top:60px;
-  }
-  #main {
-      margin-left:0px;
-  }
-  #nav {
-      display: block;
-  }
-  #closebtn {
-      display: block;
-  }
-}
   </style>
-  <script>
-  function openNav() {
-          document.getElementById("sidebar").style.width = "260px";
-      }
-      function closeNav() {
-          document.getElementById("sidebar").style.width = "0%";
-      }
-function openFullscreen() {
-    var elem = document.getElementById("video-div");
- document.getElementById("nfscreenopt").style.display = "inline";
-document.getElementById("fscreenopt").style.display = "none";
-document.getElementById("details").style.display ="none";
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-}
-
-function closeFullscreen() {
-document.getElementById("fscreenopt").style.display = "inline";
-document.getElementById("nfscreenopt").style.display = "none";
-document.getElementById("details").style.display ="block";
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.mozCancelFullScreen) { /* Firefox */
-    document.mozCancelFullScreen();
-  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-    document.webkitExitFullscreen();
-  } else if (document.msExitFullscreen) { /* IE/Edge */
-    document.msExitFullscreen();
-  }
-}
-function show() {
-if (document.getElementById("video").paused) {
-    document.getElementById("play").style.display="block";
-                    document.getElementById("pause").style.display="none";
-document.getElementById("bottom-div").style.display="block";
-} else {
-    document.getElementById("play").style.display="none";
-                    document.getElementById("pause").style.display="block";
-document.getElementById("bottom-div").style.display="block";
-clearTimeout();
-var timeout = setTimeout(hide,3500);
-}
-document.getElementById("details").style.display ="block";
-document.getElementById("options").style.display ="block";
-document.getElementById("time-div").style.display ="block"
-            document.getElementById("foward").style.display="block";
-            document.getElementById("reverse").style.display="block";
-    document.getElementById("progress-div").style.display ="block";
-}
-function hide() {
-if (document.getElementById("video").paused) {
-    document.getElementById("play").style.display="block";
-                    document.getElementById("pause").style.display="none";
-document.getElementById("foward").style.display="block";
-    document.getElementById("reverse").style.display="block";
-document.getElementById("options").style.display="block";
-document.getElementById("progress-div").style.display="block";
-} else {
-    document.getElementById("play").style.display="none";
-document.getElementById("pause").style.display="none";
-document.getElementById("foward").style.display="none";
-document.getElementById("reverse").style.display="none";
-document.getElementById("bottom-div").style.display="none";
-document.getElementById("options").style.display="none";
-                    }
-
-}
-</script>
   <body>
 <!--HEADER-->
-<div id="video-div" onclick="show()"class="d-flex align-items-center justify-content-center">
+<div id="video-div" onmousehover="show()" onclick="show()"class="d-flex align-items-center justify-content-center">
+  <!--TOP TIME-->
     <div id="details" class="align-self-start">
     <span id="title">Darling in the franxx</span><br>
     <span id="episode">Episode 5</span>
     </div>
-    <div id="options" class="align-self-start">
+<!--OPTIONS-->
+    <div id="options-div" class="align-self-start">
+     <span id="epip" onclick="enablePip()"><i class="fas fa-window-maximize"></i></span>
+     <span id="dpip" onclick="disablePip()"><i class="far fa-window-maximize"></i></span>
         <span class="options" id="openscreen"><span id="fscreenopt" onclick="openFullscreen()"><i class="fas fa-expand"></i></span>
  <span id="nfscreenopt" onclick="closeFullscreen()"><i class="fas fa-compress"></i></span>
     </div>
+    <!--CENTER OPTIONS-->
     <div id="center" class="d-flex justify-content-between">
         <h1 id="reverse" onclick="rewind()"><i class="fas fa-undo"></i></h1>
         <h1 id="play" onclick="play()"><i class="fas fa-play"></i></h1>
         <h1 id="pause" onclick="play()"><i class="fas fa-pause"></i></h1>
         <h1 id="foward" onclick="foward()"><i class="fas fa-redo"></i></h1>
     </div>
+    <!--VIDEOS-->
         <video id="video" onclick="play()" onmouseover="show()" controls="false">
-  <source src="https://lb.loadfast1.com/cdn25/d03b4aa079f88cfb67aa2d4c6c1ff787/EP.1.v0.1639204614.1080p.mp4?mac=MNGNeqs25arTj0cZOThUMyd1%2B6UwJtQp4JYKyp%2Bz5rg%3D&expiry=1640891635575" type="video/mp4">
+  <source src="video.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+<!--BOTTOM DIV-->
     <div id="bottom-div">
-        <div id="btime">
     <div id="time-div" class="time">
   <time id="time-elapsed">00:00</time>
   <span> / </span>
-  <time id="duration">00:00</time>
+  <time id="total-time">00:00</time>
 </div>
 </div>
-<div id="progress-div" class="video-progress">
-    <progress id="progress-bar" value="0" min="0"></progress>
-  <input class="seek" id="seek" value="0" min="0" type="range" step="1">
-</div>
-</div>
+<!--ERROR DIV-->
 <div id="error">
     <h3><i class="fas fa-video-slash"></i> Something went wrong!</h3>
 <span>Please check if the provided link is correct.</span>
 </div>
 </div>
-<script>
-var vid = document.getElementById("video");
-vid.removeAttribute("controls");
-  function play() {
-      if (vid.paused) {
-          vid.play();
-          document.getElementById("play").style.display="none";
-                    document.getElementById("pause").style.display="block";
-                                document.getElementById("foward").style.display="block";
-                                document.getElementById("reverse").style.display="block";
-document.getElementById("details").style.display ="none";
-document.getElementById("options").style.display ="none";
-document.getElementById("time-div").style.display ="none"
-    document.getElementById("progress-div").style.display ="none";
-      } else {
-          vid.pause();
-          document.getElementById("play").style.display="block";
-          document.getElementById("pause").style.display="none";
-          document.getElementById("details").style.display ="block";
-          document.getElementById("time-div").style.display ="block"
-    document.getElementById("progress-div").style.display ="block";
-document.getElementById("options").style.display ="block";
-      }
-  }
-  //tine
-  const timeElapsed = document.getElementById("time-elapsed");
-const duration = document.getElementById("duration");
-function formatTime(timeInSeconds) {
-  const result = new Date(timeInSeconds * 1000).toISOString().substr(11, 8);
-
-  return {
-    minutes: result.substr(3, 2),
-    seconds: result.substr(6, 2),
-  };
-};
-function initializeVideo() {
-  const videoDuration = Math.round(vid.duration);
-  seek.setAttribute('max', videoDuration);
-  progressBar.setAttribute('max', videoDuration);
-  const time = formatTime(videoDuration);
-  duration.innerText = `${time.minutes}:${time.seconds}`;
-  duration.setAttribute('datetime', `${time.minutes}m ${time.seconds}s`)
-}
-vid.addEventListener('loadedmetadata', initializeVideo);
-
-const progressBar = document.getElementById('progress-bar');
-const seek = document.getElementById('seek');
-// updateProgress indicates how far through the video
-// the current playback is by updating the progress bar
-function updateProgress() {
-  seek.value = Math.floor(vid.currentTime);
-  var ctime = formatTime(vid.currentTime);
-  document.getElementById("time-elapsed").innerHTML = `${ctime.minutes}:${ctime.seconds}`;
-}
-vid.addEventListener('timeupdate', updateProgress);
-
-// skipAhead jumps to a different point in the video when
-// the progress bar is clicked
-function skipAhead(event) {
-  const skipTo = event.target.dataset.seek ? event.target.dataset.seek : event.target.value;
-  vid.currentTime = skipTo;
-  progressBar.value = skipTo;
-  seek.value = skipTo;
-}
-seek.addEventListener('input', skipAhead);
-function foward() {
-    vid.currentTime = vid.currentTime + 10;
-    seek.value = seek.value + 10;
-}
-function rewind() {
-    vid.currentTime = vid.currentTime - 10;
-    seek.value = seek.value - 10;
-}
-vid.addEventListener('error', function(event) {
-    document.getElementById("error").style.display = "block";
-    
-}, true);
-</script>
+<script src="vid.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 const params = new URLSearchParams(window.location.search);
 document.getElementById("title").innerHTML = params.get("title");
 document.getElementById("episode").innerHTML = params.get("ep");
 document.getElementById("video").src = params.get("src");
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})</script>
+</script>
   </body>
 </html>
