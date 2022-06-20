@@ -9,88 +9,47 @@
         <link rel="icon"
         type="image/png"
         href="logo.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/3a3c813962.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
     </head>
-    <script src="https://kit.fontawesome.com/3a3c813962.js" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-</head>
 <style>
-h1{
+    body {
+    font-family: 'Sora', sans-serif;
+   padding: 20px;
+}
+#main {
+    display: block;
+    text-align: center;
+}
+#brand {
     text-decoration: underline;
     text-decoration-color: #AD7EC2;
-}
-body{
-    background-color:#303030;
-    color:white;
-    font-family: 'Montserrat', sans-serif;
-}
-button{
-    background-color: #AD7EC2;
-    border:none;
-    border-radius: 2px;
-    padding: 10px 17px;
-    text-decoration: bold;
-    color:white;
-    position: relative;
-    text-align: center;
-}
-#main{
-    margin: auto;
-  width: 90%;
-  padding: 30px;
-  text-align: center;
-}
-#help{
-    padding: 10px;
-}
-form{
-    color: black;
-}
-#player{
-    border-radius:5px;
-    width:100%;
-    max-width: 700px;
-}
-a{
-    text-decoration:none;
-    color: white;
-    padding: 10px;
-}
-footer {
-    text-align: center;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
 }
 </style>
 <body>
     <div id= "main">
-<h1>VidPlayer</h1>
-<h6>A simple video player.</h6>
-<script>
-function src() {
-
-   var vidsrc = document.getElementById("fsrc").value;
-document.getElementById("video").innerHTML = `<iframe allow='fullscreen' src='https://avi-rana-1718.github.io/VidPlayer/watch?src=${vidsrc}'></iframe>`;
-}
-</script>
-<div id="video">
-    
-</div>
- <br>
-<form>
-  <label for="fsrc"></label><br>
-  <input type="text" placeholder="URL" id="fsrc" name="fsrc"><br>
-</form>
-<button onclick="src()">
-<i class="fas fa-play"></i></button>
-</div>
-<div id = "help">
-<h5>How To Use</h5>
-<h6>- Enter a URL in the input box and click the play button.<br>
-- If the URL doesn't play , kindly check if you have provided a valid link.</h6>
-</div>
-<footer>
-    <a href="https://avi-rana-1718.github.io/Avi-Rana/index.html">@Avi Rana</a> | <a href = "https://github.com/Avi-Rana-1718">Github</a>
-</footer>
+        <h1 id="brand">Vidplayer</h1>
+        A simple video player made in HTML & JS
+        <br>
+<a href="https://github.com/Avi-Rana-1718/VidPlayer">Github</a>
+<a href="watch.html">View</a>
+    </div>
+<br>
+Features
+<ul>
+    <li>Miniplayer aka Picture in picture</li>
+    <li>Easy skips</li>
+    <li>Custom UI</li>
+    <li>Keyboard support</li>
+</ul>
+<br>
+Made By Avi Rana
 </body>
 </html>
