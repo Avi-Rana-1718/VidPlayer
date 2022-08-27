@@ -147,7 +147,7 @@ if (vid.paused) {
     detailDiv.style.display="none";
     pauseBtn.style.display="block";
     bottomDiv.style.display="block";
-var timeout = setTimeout(hide,5000);
+var timeout = setTimeout(hide,10000);
   clearTimeout();
 }
 detailDiv.style.display ="block";
