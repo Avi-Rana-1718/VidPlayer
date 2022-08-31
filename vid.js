@@ -80,19 +80,6 @@ vid.addEventListener('error', function(event) {
 
 }, true);
 
-document.addEventListener("keydown", function(event){
-      var x = event.keyCode;
-if (x == 32) {
-    play();
-    hide();
-}
-if (x == 37) {
-    rewind();
-}
- if (x == 39) {
-       foward();
-}
-  });
 
 function enablePip() {
     PipOnBtn.style.display = "none";
@@ -176,3 +163,18 @@ bottomDiv.style.display="none";
                     }
 
 }
+
+document.addEventListener("keydown", function(event){
+  var x = event.keyCode;
+  clearTimeout();
+if (x == 32) {
+play();
+hide();
+}
+if (x == 37) {
+rewind();
+}
+if (x == 39) {
+   foward();
+}
+});
