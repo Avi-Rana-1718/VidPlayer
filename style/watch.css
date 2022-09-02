@@ -1,0 +1,131 @@
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+        body {
+            background-color: #26272C;
+            color:white;
+            padding: 0;
+            margin: 0;
+        }
+  #video {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+  }
+  #video-div {
+      position:relative;
+      padding: 0;
+      height: max-content;
+      margin: 0;
+      background-color: #26272C;
+      }
+  #details {
+      position: absolute;
+      font-family: 'Poppins', sans-serif;
+      z-index:2;
+      left: 0;
+      margin: 5px;
+      text-shadow: 1px 1px 3px black;
+      top:10;
+  }
+  #center {
+      position: absolute;
+          text-shadow: 3.5px 3.5px 0px #282828;
+  z-index: 2;
+  color:#fff;
+  display: flex;
+  }
+  #center h1 {
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  .overlay {
+      background-color: #282828;
+      opacity: 0.6;
+      z-index: 2;
+      margin:5px;
+      border-radius: 3px;
+      padding: 10px;
+  }
+  
+  #options-div {
+      position: absolute;
+      right:0;
+      top:10;
+  }
+  #bottom-div {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      text-shadow: 0.5px 0.5px 1.5px black;
+  }
+  #info {
+      padding: 10px;
+      font-family: 'Manrope', sans-serif;
+  }
+  .time {
+      font-family: 'Poppins', sans-serif;
+  }
+  #nfscreenopt {
+      display: none;
+  }
+  #pause {
+      display: none;
+  }
+  #dpip {
+    display: none;
+  }
+  #loading {
+      display: none;
+      -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+  }
+  #error {
+      padding: 15px;
+  display: none;
+  position: absolute;
+  width:max-content;
+  height:max-content;
+  z-index: 5;
+  border-radius: 3px;
+  background-color: #26272C;
+  border: 1px solid black;
+  font-family: 'Manrope', sans-serif;
+  }
+  #error h3 {
+      font-family: 'Poppins', sans-serif;
+  }
+  

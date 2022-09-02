@@ -3,6 +3,7 @@ var vid = document.getElementById("video");
 
 var playBtn = document.getElementById("play");
 var pauseBtn = document.getElementById("pause");
+var spinner = document.getElementById("loading");
 var reverseBtn = document.getElementById("reverse");
 var fowardBtn = document.getElementById("foward");
 
@@ -14,6 +15,56 @@ var totalTime = document.getElementById("total-time");
 var PipOnBtn = document.getElementById("epip");
 var PipOffBtn = document.getElementById("dpip");
 
+
+var timeout; 
+
+function show() {
+  clearTimeout(timeout);
+  if ((vid.paused) && (spinner.style.display!="block")) {
+      playBtn.style.display="block";
+      pauseBtn.style.display="none";
+      bottomDiv.style.display="block";
+      detailDiv.style.display="block";
+
+  } else if (spinner.style.display != "block") {
+      playBtn.style.display="none";
+      detailDiv.style.display="none";
+      pauseBtn.style.display="block";
+      bottomDiv.style.display="block";
+      
+  var timeout = setTimeout(hide,10000);
+  }
+  if (spinner.style.display!="block") {
+    fowardBtn.style.display="block";
+    reverseBtn.style.display="block";
+  }
+  bottomDiv.style.display ="block"
+  detailDiv.style.display ="block";
+  optionDiv.style.display ="block";
+ 
+  }
+  
+  function hide() {
+    console.log('Hidden');
+  if ((document.getElementById("video").paused) && (spinner.style.display!="block")) {
+      playBtn.style.display="block";
+      pauseBtn.style.display="none";
+      fowardBtn.style.display="block";
+      detailDiv.style.display="block";
+      reverseBtn.style.display="block";
+  optionDiv.style.display="block";
+  } else {
+     playBtn.style.display="none";
+   pauseBtn.style.display="none";
+   fowardBtn.style.display="none";
+   reverseBtn.style.display="none";
+   detailDiv.style.display="none";
+  bottomDiv.style.display="none";
+   optionDiv.style.display="none";
+                      }
+  
+  }
+  
 
 vid.removeAttribute("controls");
   function play() {
@@ -61,6 +112,19 @@ vid.addEventListener('loadedmetadata', initializeVideo);
 function updateProgress() {
   var ctime = formatTime(vid.currentTime);
   document.getElementById("time-elapsed").innerHTML = `${ctime.minutes}:${ctime.seconds}`;
+
+  vid.onwaiting = function(){
+    document.getElementById("center").style.display = "none";
+    pauseBtn.style.display = "none";
+    fowardBtn.style.display = "none";
+    reverseBtn.style.display = "none";
+    spinner.style.display = "block";
+    
+};
+
+vid.onplaying = function(){
+    spinner.style.display = "none";
+};
 }
 
 vid.addEventListener('timeupdate', updateProgress);
@@ -121,47 +185,6 @@ detailDiv.style.display ="block";
   } else if (document.msExitFullscreen) { /* IE/Edge */
     document.msExitFullscreen();
   }
-}
-
-function show() {
-if (vid.paused) {
-    playBtn.style.display="block";
-    pauseBtn.style.display="none";
-    bottomDiv.style.display="block";
-    detailDiv.style.display="block";
-} else {
-    playBtn.style.display="none";
-    detailDiv.style.display="none";
-    pauseBtn.style.display="block";
-    bottomDiv.style.display="block";
-var timeout = setTimeout(hide,10000);
-  clearTimeout();
-}
-detailDiv.style.display ="block";
-optionDiv.style.display ="block";
-bottomDiv.style.display ="block"
-fowardBtn.style.display="block";
-reverseBtn.style.display="block";
-}
-
-function hide() {
-if (document.getElementById("video").paused) {
-    playBtn.style.display="block";
-    pauseBtn.style.display="none";
-    fowardBtn.style.display="block";
-    detailDiv.style.display="block";
-    reverseBtn.style.display="block";
-optionDiv.style.display="block";
-} else {
-   playBtn.style.display="none";
- pauseBtn.style.display="none";
- fowardBtn.style.display="none";
- reverseBtn.style.display="none";
- detailDiv.style.display="none";
-bottomDiv.style.display="none";
- optionDiv.style.display="none";
-                    }
-
 }
 
 document.addEventListener("keydown", function(event){
