@@ -31,7 +31,7 @@ function initializeVideo() {
 
 function updateProgress() {
   var ctime = formatTime(vid.currentTime);
-  seek.value = Math.floor(video.currentTime);
+  seek.value = Math.floor(vid.currentTime);
   document.getElementById("time-elapsed").innerHTML = `${ctime.minutes}:${ctime.seconds}`;
 
   vid.onwaiting = function(){
@@ -67,7 +67,7 @@ vid.addEventListener('timeupdate', updateProgress);
 seek.addEventListener('mousemove', updateSeekTooltip);
 seek.addEventListener('input', skipAhead);
 vid.addEventListener('error', function(event) {
-  document.getElementById("error").style.display = "none";
+  document.getElementById("error").style.display = "block";
 
 }, true);
 document.addEventListener("keydown", function(event){

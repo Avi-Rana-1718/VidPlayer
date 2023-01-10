@@ -88,7 +88,7 @@ body {
       z-index: 2;
       margin:5px;
       border-radius: 3px;
-      padding: 8px 14px;
+      padding: 7px 14px;
   }
   
   #options-div {
@@ -103,7 +103,7 @@ body {
       display: flex;
       align-items: center;
       bottom: 0;
-      width: 95%;
+      width: 90%;
       text-shadow: 0.5px 0.5px 1.5px black;
   }
   #info {
@@ -118,7 +118,8 @@ body {
     -webkit-appearance: none;
     background: #695B5C;
     display: inline;
-    width: 80vw;
+    flex-grow: 100;
+    width: 70%;
     height: 10px;
     margin: 3px;
     border-radius: 6px;
@@ -168,11 +169,11 @@ body {
       padding: 15px;
   display: none;
   position: absolute;
-  width:max-content;
-  height:max-content;
+  top: 50%;
+  align-self: center;
   z-index: 100;
   border-radius: 3px;
-  background-color: #26272C;
+  background-color: #3e3839;
   border: 1px solid black;
   font-family: 'Manrope', sans-serif;
   }
@@ -181,7 +182,7 @@ body {
   }
   
  @media only screen and (max-width:800px) {
-#seek {
-  width: 75%;
-}
+  #details {
+    font-size: large;
+  }
    }
