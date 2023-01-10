@@ -18,21 +18,20 @@
     </head>
   <body>
 <!--HEADER-->
-<div id="video-div" onclick="show()"class="d-flex align-items-center justify-content-center">
+<div id="video-div" onclick="show()">
   <!--TOP TIME-->
-    <div id="details" class="align-self-start">
-    <span id="title">Darling in the franxx</span><br>
-    <span id="episode">Episode 5</span>
+    <div id="details">
+    <span id="title"></span><br>
+    <span id="episode"></span>
     </div>
 <!--OPTIONS-->
-    <div id="options-div" class="align-self-start overlay">
-     <span id="epip" onclick="enablePip()"><i class="fas fa-window-maximize"></i></span>
-     <span id="dpip" onclick="disablePip()"><i class="far fa-window-maximize"></i></span>
-        <span class="options" id="openscreen"><span id="fscreenopt" onclick="openFullscreen()"><i class="fas fa-expand"></i></span>
- <span id="nfscreenopt" onclick="closeFullscreen()"><i class="fas fa-compress"></i></span>
+    <div id="options-div" class="overlay">
+        <span class="options" id="openscreen">
+          <span id="fscreenopt" onclick="openFullscreen()"><i class="fas fa-expand-alt"></i></span>
+ <span id="nfscreenopt" onclick="closeFullscreen()"><i class="fas fa-compress-alt"></i></span>
     </div>
     <!--CENTER OPTIONS-->
-    <div id="center" class="d-flex justify-content-between">
+    <div id="center">
         <h1 id="reverse" onclick="rewind()"><i class="fas fa-undo"></i></h1>
         <h1 id="play" onclick="play()"><i class="fas fa-play"></i></h1>
         <h1 id="pause" onclick="play()"><i class="fas fa-pause"></i></h1>
@@ -42,16 +41,17 @@
     <!--VIDEOS-->
         <video id="video" onclick="play()" controls="false">
   <source src="video.mp4" type="video/mp4">
-   <source src="playlist.m3u8" type="application/x-mpegURL">
+   <source src="video.m3u8" type="application/x-mpegURL">
 Your browser does not support the video tag.
 </video>
 <!--BOTTOM DIV-->
     <div id="bottom-div" class="overlay">
-    <div id="time-div" class="time">
-  <time id="time-elapsed">00:00</time>
-  <span> / </span>
-  <time id="total-time">00:00</time>
-</div>
+
+<time class="time" id="time-elapsed">00:00</time>
+<input id="seek" value="0" min="0" type="range" step="1">
+<time class="time" id="total-time">00:00</time>
+<span id="epip" onclick="enablePip()"><i class="fas fa-window-maximize"></i></span>
+<span id="dpip" onclick="disablePip()"><i class="far fa-window-maximize"></i></span>
 </div>
 <!--ERROR DIV-->
 <div id="error">
