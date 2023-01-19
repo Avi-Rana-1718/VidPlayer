@@ -19,40 +19,115 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 <style>
     body {
-        background-color: #26272C;
+        background-color: #fff;
     font-family: 'Sora', sans-serif;
-   padding: 20px;
-   color: white;
+   color: black;
 }
-#main {
-    display: block;
-    text-align: center;
-}
+
 #brand {
     text-decoration: underline;
-    text-decoration-color: #AD7EC2;
+    text-decoration-color: #C92C61;
     font-weight: 300;
     font-family: 'Poppins', sans-serif;
 }
-</style>   </head>
+a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+a:hover {
+    text-decoration: underline;
+}
+nav {
+    padding: 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+header {
+    padding: 25px;
+    color: #fff;
+    background-color: #303846;
+}
+header a {
+    padding: 5px 8px;
+    color: #fff;
+    background-color: #C92C61;
+    border-radius: 3px;
+    margin: 4px;
+    margin-top: 6px;
+}
 
+iframe {
+    width: 25vw;
+    height: 14vw;
+}
+section {
+    padding: 25px;
+}
+footer {
+    margin: 40px;
+    color: #888;
+    display: flex;
+}
+footer ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+footer a {
+    color: #888;
+    margin: 2px;
+}
+</style>
+</head>
 <body>
-    <div id= "main">
-        <h1 id="brand">Vidplayer</h1>
-        A simple video player made in HTML & JS
-        <br>
-<a href="https://github.com/Avi-Rana-1718/VidPlayer">Github</a>
-<a href="watch.html">View</a>
-    </div>
+    <nav>
+        <h3 id="brand">Vidplayer</h3>
+<div>
+    <a href="https://github.com/Avi-Rana-1718/VidPlayer">Github</a>
+</div>
+    </nav>
+<header>
+    <p>
+        Video player made in HTML and JS with lots of <u>cool</u> features.<br>
+        Try it out now.
+    </p>
+    <a href="watch.html">View</a>
+    <a href="watch.html?src=sample.html">Demo</a>
+</header>
+
 <br>
-Features
+<section>
+    Features
 <ul>
     <li>Miniplayer aka Picture in picture</li>
     <li>Easy skips</li>
     <li>Custom UI</li>
     <li>Keyboard support</li>
 </ul>
-<br>
-Made By Avi Rana
+</section>
+<!-- <section>
+    <p>
+        Some special url paramater that enable you to use the video player
+    </p>
+    <code>
+        src :       <span>Set source of the video</span><br>
+        title : <span>Set title of the video</span><br>
+        sub : <span>Set subtext of the video</span><br>
+    </code>
+</section> -->
+
+<footer>
+    @AviRana
+    <ul>
+        <li><a title="Github" href="https://github.com/Avi-Rana-1718"><i class="fab fa-github"></i></a></li>
+        <li><a title="Buymeacoffee" href="https://avirana.com/coffee"><i class="fas fa-coffee"></i></a></li>
+        <li><a title ="Twitter" href="https://www.twitter.com/_AviRana"><i class="fab fa-twitter"></i></a></li>
+        <li><a title="Discord" href="https://discord.com/users/738331369616441427"><i class="fab fa-discord"></i></a></li>
+        <li><a title="Linkedin" href="https://www.linkedin.com/in/avi-rana/"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+</footer>
+
 </body>
 </html>

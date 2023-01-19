@@ -22,7 +22,7 @@
   <!--TOP TIME-->
     <div id="details">
     <span id="title"></span><br>
-    <span id="episode"></span>
+    <span id="subtext"></span>
     </div>
 <!--OPTIONS-->
     <div id="options-div" class="overlay">
@@ -71,7 +71,7 @@ Your browser does not support the video tag.
 <script>
 const params = new URLSearchParams(window.location.search);
 document.getElementById("title").innerHTML = params.get("title");
-document.getElementById("episode").innerHTML = params.get("ep");
+document.getElementById("subtext").innerHTML = params.get("sub");
 document.getElementById("video").src = params.get("src");
 </script>
   </body>
