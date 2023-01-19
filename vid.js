@@ -45,10 +45,14 @@ function updateProgress() {
 vid.oncanplay = function(){
   if(vid.paused) {
   pauseBtn.style.display = "none";
+  document.getElementById("pauseBottom").style.display = "none";
+  document.getElementById("playBottom").style.display = "inline";
   playBtn.style.display="inline";
   fowardBtn.style.display = "inline";
   reverseBtn.style.display = "inline";
   } else {
+    document.getElementById("pauseBottom").style.display = "inline";
+  document.getElementById("playBottom").style.display = "none";
     pauseBtn.style.display = "inline";
   playBtn.style.display="none";
   fowardBtn.style.display = "inline";
@@ -144,6 +148,8 @@ function show() {
           vid.play();
           playBtn.style.display="none";
           pauseBtn.style.display="inline";
+          document.getElementById("pauseBottom").style.display = "inline";
+  document.getElementById("playBottom").style.display = "none";
           fowardBtn.style.display="inline";
           reverseBtn.style.display="inline";
 detailDiv.style.display ="none";
@@ -151,6 +157,8 @@ optionDiv.style.display ="none";
 bottomDiv.style.display ="none"
       } else {
           vid.pause();
+          document.getElementById("pauseBottom").style.display = "none";
+  document.getElementById("playBottom").style.display = "inline";
           playBtn.style.display="inline";
           pauseBtn.style.display="none";
           detailDiv.style.display ="inline";

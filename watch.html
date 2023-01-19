@@ -45,13 +45,20 @@
 Your browser does not support the video tag.
 </video>
 <!--BOTTOM DIV-->
-    <div id="bottom-div" class="overlay">
+    <div id="bottom-div">
+<div class="overlay">
+  <span id="playBottom" onclick="play()"><i class="fas fa-play"></i></span>
+  <span id="pauseBottom" onclick="play()"><i class="fas fa-pause"></i></span>
+</div>
 
-<time class="time" id="time-elapsed">00:00</time>
-<input id="seek" value="0" min="0" type="range" step="1">
-<time class="time" id="total-time">00:00</time>
-<span id="epip" onclick="enablePip()"><i class="fas fa-window-maximize"></i></span>
-<span id="dpip" onclick="disablePip()"><i class="far fa-window-maximize"></i></span>
+<div class="overlay">
+    <time class="time" id="time-elapsed">00:00</time>
+    <input id="seek" value="0" min="0" type="range" step="1">
+    <time class="time" id="total-time">00:00</time>
+    <span id="epip" onclick="enablePip()"><i class="fas fa-window-maximize"></i></span>
+    <span id="dpip" onclick="disablePip()"><i class="far fa-window-maximize"></i></span>
+</div>
+
 </div>
 <!--ERROR DIV-->
 <div id="error">
