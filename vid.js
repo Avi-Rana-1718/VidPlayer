@@ -17,7 +17,7 @@ var PipOnBtn = document.getElementById("epip");
 var PipOffBtn = document.getElementById("dpip");
 
 
-var timeout; 
+var timeout, fullscreen = true;
 
 vid.removeAttribute("controls");
 
@@ -37,6 +37,7 @@ function updateProgress() {
   vid.onwaiting = function(){
     document.getElementById("center").style.display = "block";
     pauseBtn.style.display = "none";
+    playBtn.style.display = "none";
     fowardBtn.style.display = "inline";
     reverseBtn.style.display = "inline";
     spinner.style.display = "inline";
@@ -74,6 +75,10 @@ vid.addEventListener('error', function(event) {
   document.getElementById("error").style.display = "block";
 
 }, true);
+addEventListener("mousemove", function () {
+  vid.style.cursor = "auto";
+  show();
+});
 document.addEventListener("keydown", function(event){
   var x = event.keyCode;
   clearTimeout();
@@ -86,6 +91,9 @@ rewind();
 }
 if (x == 39) {
    foward();
+}
+if(x == 70) {
+fullscreenWindow();
 }
 });
 
@@ -110,7 +118,7 @@ function show() {
         reverseBtn.style.display="inline";
       bottomDiv.style.display="block";
       
-  var timeout = setTimeout(hide,10000);
+  var timeout = setTimeout(hide,7000);
   }
 
   fowardBtn.style.display="inline";
@@ -122,7 +130,7 @@ function show() {
   }
   
   function hide() {
-    console.log('Hidden');
+    clearTimeout(timeout);
   if ((document.getElementById("video").paused) && (spinner.style.display!="block")) {
       playBtn.style.display="inline";
       pauseBtn.style.display="none";
@@ -147,11 +155,11 @@ function show() {
       if (vid.paused) {
           vid.play();
           playBtn.style.display="none";
-          pauseBtn.style.display="inline";
+          pauseBtn.style.display="none";
           document.getElementById("pauseBottom").style.display = "inline";
   document.getElementById("playBottom").style.display = "none";
-          fowardBtn.style.display="inline";
-          reverseBtn.style.display="inline";
+          fowardBtn.style.display="none";
+          reverseBtn.style.display="none";
 detailDiv.style.display ="none";
 optionDiv.style.display ="none";
 bottomDiv.style.display ="none"
@@ -204,7 +212,9 @@ function disablePip() {
   PipOffBtn.style.display = "none";
   document.exitPictureInPicture();
 }
-function openFullscreen() {
+function fullscreenWindow() {
+  if (fullscreen==false) {
+    fullscreen=true;
     var elem = document.getElementById("video-div");
  document.getElementById("nfscreenopt").style.display = "inline";
 document.getElementById("fscreenopt").style.display = "none";
@@ -218,8 +228,9 @@ detailDiv.style.display ="none";
   } else if (elem.msRequestFullscreen) { /* IE/Edge */
     elem.msRequestFullscreen();
   }
-}
-function closeFullscreen() {
+
+} else {
+  fullscreen=false;
 document.getElementById("fscreenopt").style.display = "inline";
 document.getElementById("nfscreenopt").style.display = "none";
 detailDiv.style.display ="block";
@@ -232,5 +243,6 @@ detailDiv.style.display ="block";
   } else if (document.msExitFullscreen) { /* IE/Edge */
     document.msExitFullscreen();
   }
+}
 }
 

@@ -90,6 +90,9 @@ body {
       background-color: #252323;
       opacity: 0.6;
       z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin:5px;
       border-radius: 3px;
       padding: 7px 14px;

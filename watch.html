@@ -18,7 +18,7 @@
     </head>
   <body>
 <!--HEADER-->
-<div id="video-div" onclick="show()">
+<div id="video-div">
   <!--TOP TIME-->
     <div id="details">
     <span id="title"></span><br>
@@ -27,8 +27,8 @@
 <!--OPTIONS-->
     <div id="options-div" class="overlay">
         <span class="options" id="openscreen">
-          <span id="fscreenopt" onclick="openFullscreen()"><i class="fas fa-expand-alt"></i></span>
- <span id="nfscreenopt" onclick="closeFullscreen()"><i class="fas fa-compress-alt"></i></span>
+          <span id="fscreenopt" onclick="fullscreenWindow()"><i class="fas fa-expand-alt"></i></span>
+ <span id="nfscreenopt" onclick="fullscreenWindow()"><i class="fas fa-compress-alt"></i></span>
     </div>
     <!--CENTER OPTIONS-->
     <div id="center">
@@ -39,7 +39,7 @@
         <h1 id="foward" onclick="foward()"><i class="fas fa-redo"></i></h1>
     </div>
     <!--VIDEOS-->
-        <video id="video" onclick="play()" controls="false">
+        <video id="video" controls="false">
   <source src="video.mp4" type="video/mp4">
    <source src="video.m3u8" type="application/x-mpegURL">
 Your browser does not support the video tag.
